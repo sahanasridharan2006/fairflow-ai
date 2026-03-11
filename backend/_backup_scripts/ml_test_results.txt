@@ -1,0 +1,84 @@
+
+=== === === === === === === === === === === === === === === === === === === === 
+FAIRFLOW DEEP SCENARIO VALIDATION
+=== === === === === === === === === === === === === === === === === === === === 
+
+--- Scenario 1: Morning City Apartments (Easy) ---
+ML Suggestion: Easy (Confidence: 0.81)
+ML Reason: Low apartment count, light traffic, driver has capacity to help balance team workload. Route score: 6.0, driver context considered.
+FairFlow Action: APPROVED
+Approved: Easy
+Blocked: []
+Reason: Approved Easy route. Note: Driver workload per working hour is 17% below team average and can handle harder routes if needed.
+PASS: Scenario PASSED
+
+
+--- Scenario 2: Normal Urban Midday (Medium) ---
+ML Suggestion: Easy (Confidence: 0.99)
+ML Reason: Low apartment count, driver workload per working hour is balanced. Route score: 23.5, driver context considered.
+FairFlow Action: APPROVED
+Approved: Easy
+Blocked: []
+Reason: Workload per working hour is within team range.
+X FAIL: Expected ML Medium, got Easy
+FAIL: Scenario FAILED
+
+
+--- Scenario 3: Evening Rush + High Apartments (Hard) ---
+ML Suggestion: Hard (Confidence: 0.52)
+ML Reason: High apartment count, stairs present, some heavy packages, heavy traffic. Route score: 110.5, driver context considered.
+FairFlow Action: APPROVED
+Approved: Hard
+Blocked: []
+Reason: Workload per working hour is within team range.
+PASS: Scenario PASSED
+
+
+--- Scenario 4: Hard Route, but Fatigued Driver ---
+ML Suggestion: Hard (Confidence: 0.91)
+ML Reason: High apartment count, stairs present, some heavy packages, heavy traffic. Route score: 110.5, driver context considered.
+FairFlow Action: ADJUSTED
+Approved: Medium
+Blocked: ['Hard']
+Reason: Driver is receiving 23% more workload per working hour than team average. Downgraded from Hard to Medium for fairness protection.
+PASS: Scenario PASSED
+
+
+--- Scenario 5: Long-Haul Driver Already Overloaded ---
+ML Suggestion: Hard (Confidence: 0.94)
+ML Reason: High apartment count, stairs present, many heavy boxes, heavy traffic. Route score: 122.5, driver context considered.
+FairFlow Action: BLOCKED
+Approved: Blocked
+Blocked: ['Easy', 'Medium', 'Hard']
+Reason: Severe workload overload detected (47% above average). Assignment blocked for fairness protection.
+PASS: Scenario PASSED
+
+
+--- Scenario 6: Sick / Half-Shift Driver ---
+ML Suggestion: Easy (Confidence: 0.95)
+ML Reason: Moderate apartments, driver workload per working hour is balanced. Route score: 26.5, driver context considered.
+FairFlow Action: BLOCKED
+Approved: Blocked
+Blocked: ['Easy', 'Medium', 'Hard']
+Reason: Driver status is SICK. No routes should be assigned.
+PASS: Scenario PASSED
+
+
+--- Scenario 7: Driver on Leave ---
+ML Suggestion: Easy (Confidence: 0.81)
+ML Reason: Low apartment count, light traffic, driver workload per working hour is balanced. Route score: 7.5, driver context considered.
+FairFlow Action: BLOCKED
+Approved: Blocked
+Blocked: ['Easy', 'Medium', 'Hard']
+Reason: Driver status is ABSENT. No routes should be assigned.
+PASS: Scenario PASSED
+
+
+--- Scenario 9: 8-Driver Board Snapshot ---
+Board Distribution: {'Easy': 5, 'Medium': 2, 'Hard': 1}
+PASS: Visually balanced board
+
+--- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- 
+VALIDATION COMPLETE
+--- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- 
+

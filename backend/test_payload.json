@@ -1,0 +1,10 @@
+{
+    "route_features": {
+        "address": "123 Test St",
+        "distance_km": 25,
+        "stairs_present": true,
+        "heavy_packages_count": 10,
+        "traffic_level": "High",
+        "weather_severity": "Clear"
+    }
+}

@@ -1,0 +1,30 @@
+
+--- EASY ROUTE RANKING ---
+Goal: Overloaded (DESC) > Ready (ABS) > Underloaded (DESC)
+Expect: Over200, Over50, Ready10, Ready-20, Under-10, Under-100
+1. Over200 (Overloaded, 200)
+2. Over50 (Overloaded, 50)
+3. Ready10 (Ready, 10)
+4. Ready-20 (Ready, -20)
+5. Under-10 (Underloaded, -10)
+6. Under-100 (Underloaded, -100)
+
+--- MEDIUM ROUTE RANKING ---
+Goal: Ready (ABS) > Underloaded (DESC) > Overloaded (ASC)
+Expect: Ready10, Ready-20, Under-10, Under-100, Over50, Over200
+1. Ready10 (Ready, 10)
+2. Ready-20 (Ready, -20)
+3. Under-10 (Underloaded, -10)
+4. Under-100 (Underloaded, -100)
+5. Over50 (Overloaded, 50)
+6. Over200 (Overloaded, 200)
+
+--- HARD ROUTE RANKING ---
+Goal: Underloaded (ASC) > Ready (ABS) > Overloaded (ASC)
+Expect: Under-100, Under-10, Ready10, Ready-20, Over50, Over200
+1. Under-100 (Underloaded, -100)
+2. Under-10 (Underloaded, -10)
+3. Ready10 (Ready, 10)
+4. Ready-20 (Ready, -20)
+5. Over50 (Overloaded, 50)
+6. Over200 (Overloaded, 200)

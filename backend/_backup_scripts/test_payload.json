@@ -1,0 +1,10 @@
+{
+  "driver_id": 1,
+  "route_factors": {
+    "apartments": 6,
+    "stairs": true,
+    "heavy_boxes": 4,
+    "traffic": true,
+    "rain": true
+  }
+}
